@@ -63,7 +63,7 @@ class ERC20Subgraph {
     typeDefs() {
         return (0, client_1.gql) `
       type Query {
-        erc20: ERC20
+        erc20: ERC20!
       }
 
       type ERC20 {
