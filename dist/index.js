@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ERC20Subgraph = void 0;
 const client_1 = require("@apollo/client");
+const core_1 = require("@enyo-web3/core");
 const schema_1 = require("@graphql-tools/schema");
 const erc20Interface = [
     'function name() external view returns (string)',
@@ -19,7 +20,7 @@ const erc20Interface = [
     'function totalSupply() external view returns (uint256)',
     'function balanceOf(address account) external view returns (uint256)',
 ];
-class ERC20Subgraph {
+class ERC20Subgraph extends core_1.EnyoSubgraph {
     schema(providers) {
         const ethersProvider = providers.ethers;
         return (0, schema_1.makeExecutableSchema)({

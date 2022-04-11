@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import type { EnyoSubgraph } from '@enyo-web3/core';
+import { EnyoSubgraph } from '@enyo-web3/core';
 import type { ProvidersWithEthers } from '@enyo-web3/ethers';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { ethers } from 'ethers';
@@ -20,7 +20,7 @@ export interface ERC20Token {
   totalSupply: ethers.BigNumber;
 }
 
-export class ERC20Subgraph implements EnyoSubgraph<ProvidersWithEthers> {
+export class ERC20Subgraph extends EnyoSubgraph<ProvidersWithEthers> {
   schema(providers: ProvidersWithEthers) {
     const ethersProvider = providers.ethers;
 
