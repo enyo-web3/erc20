@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,8 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { gql } from '@apollo/client';
-import { makeExecutableSchema } from '@graphql-tools/schema';
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ERC20Subgraph = void 0;
+const client_1 = require("@apollo/client");
+const schema_1 = require("@graphql-tools/schema");
 const erc20Interface = [
     'function name() external view returns (string)',
     'function symbol() external view returns (string)',
@@ -16,10 +19,10 @@ const erc20Interface = [
     'function totalSupply() external view returns (uint256)',
     'function balanceOf(address account) external view returns (uint256)',
 ];
-export class ERC20Subgraph {
+class ERC20Subgraph {
     schema(providers) {
         const ethersProvider = providers.ethers;
-        return makeExecutableSchema({
+        return (0, schema_1.makeExecutableSchema)({
             typeDefs: this.typeDefs(),
             resolvers: {
                 Query: {
@@ -58,7 +61,7 @@ export class ERC20Subgraph {
         });
     }
     typeDefs() {
-        return gql `
+        return (0, client_1.gql) `
       type Query {
         erc20: ERC20;
       }
@@ -80,4 +83,5 @@ export class ERC20Subgraph {
     `;
     }
 }
+exports.ERC20Subgraph = ERC20Subgraph;
 //# sourceMappingURL=index.js.map
