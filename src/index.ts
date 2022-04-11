@@ -68,7 +68,7 @@ export class ERC20Subgraph implements EnyoSubgraph<ProvidersWithEthers> {
   typeDefs() {
     return gql`
       type Query {
-        erc20: ERC20;
+        erc20: ERC20
       }
 
       type ERC20 {
